@@ -1,4 +1,4 @@
-## Riddikulus
+# Riddikulus
 
 Problem
 ----------
@@ -37,6 +37,9 @@ Images are hard-coded optionals that work for 2 users (here, Matt and Jillian).
 Previews arent loading, maybe because the model requires Firebase.
 
 Inspiration: https://www.youtube.com/watch?v=doxxfXqpKYA
+
+Credits
+----------
 
 To build this app, I followed this tutorial: https://www.skillshare.com/classes/SwiftUI-Build-Chat-App-for-Beginners-2021/266407467
 
