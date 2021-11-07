@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SendButton: View {
+    @EnvironmentObject var model: AppStateModel
     @Binding var text: String
     
     var body: some View {
@@ -25,10 +26,14 @@ struct SendButton: View {
     }
     
     func sendMessage() {
-        guard !text.isEmpty else {
+        guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
             return
         }
         
+        model.sendMessage(text)
+        
+        // clear out text field
+        text = ""
     }
 }
 
