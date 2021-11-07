@@ -40,6 +40,14 @@ struct ChatView: View {
                     .modifier(CustomField())
                 
                 SendButton(text: $message)
+                Button(action: {
+                    model.riddikulusIsOn.toggle()
+                    model.riddikulusCount += 1
+                }, label: {
+                    Image(systemName: "wand.and.rays")
+                        .font(Font.system(.largeTitle))
+                        .frame(width: 55, height: 55)
+                })
             }
             .padding()
         }

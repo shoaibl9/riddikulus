@@ -23,6 +23,8 @@ class AppStateModel: ObservableObject {
     let auth = Auth.auth()
     
     var otherUsername = ""
+    var riddikulusIsOn: Bool = false
+    var riddikulusCount: Int = 0
     
     var conversationListener: ListenerRegistration?
     var chatListener: ListenerRegistration?
@@ -114,8 +116,14 @@ extension AppStateModel {
     func sendMessage(_ text: String) {
         let newMessageId = UUID().uuidString
         
+        var tempText = text
+        
+        if (riddikulusIsOn) {
+            tempText = riddikulus(tempText)
+        }
+        
         let data = [
-            "text": text,
+            "text": tempText,
             "sender": currentUsername,
             "created": ISO8601DateFormatter().string(from: Date())
         ]
@@ -128,6 +136,14 @@ extension AppStateModel {
             .collection("messages")
             .document(newMessageId)
             .setData(data)
+        
+        database
+            .collection("users")
+            .document(currentUsername)
+            .collection("chats")
+            .document(otherUsername)
+            .collection("messages")
+            .document(newMessageId)
         
         database
             .collection("users")
@@ -157,6 +173,16 @@ extension AppStateModel {
             .setData([
                 "created": true
             ])
+    }
+    
+    func riddikulus(_ text: String) -> String {
+        if riddikulusCount == 0 {
+            return text.uppercased()
+        } else if riddikulusCount == 1 {
+            return "IMPORTANT: " + text + "!!!!!!!!"
+        } else {
+            return "🤪😵‍💫🤡 " + text + " 😭😢😭😪😭"
+        }
     }
 }
 
