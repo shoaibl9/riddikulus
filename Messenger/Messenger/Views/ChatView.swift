@@ -27,10 +27,16 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
-            ScrollView(.vertical) {
-                ForEach(model.messages, id: \.self) { message in
-                    ChatRow(text: message.text, type: message.type)
-                        .padding(3)
+            ScrollViewReader { scrollView in
+                ScrollView(.vertical) {
+                    ForEach(model.messages, id: \.self) { message in
+                        ChatRow(text: message.text, type: message.type)
+                            .padding(3)
+                    }
+                    Text("This is the last view").id("lastView")
+                }
+                .onAppear{
+                    scrollView.scrollTo("lastView", anchor: .bottom)
                 }
             }
             

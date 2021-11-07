@@ -176,12 +176,14 @@ extension AppStateModel {
     }
     
     func riddikulus(_ text: String) -> String {
-        if riddikulusCount == 0 {
+        if riddikulusCount == 1 {
             return text.uppercased()
-        } else if riddikulusCount == 1 {
+        } else if riddikulusCount == 3 {
             return "IMPORTANT: " + text + "!!!!!!!!"
-        } else {
+        } else if riddikulusCount == 5 {
             return "🤪😵‍💫🤡 " + text + " 😭😢😭😪😭"
+        } else {
+            return text
         }
     }
 }

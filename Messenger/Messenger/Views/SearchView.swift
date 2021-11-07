@@ -37,9 +37,12 @@ struct SearchView: View {
             List {
                 ForEach(usernames, id: \.self) { name in
                     HStack {
-                        Circle()
-                            .frame(width: 55, height: 55)
+                        Image(model.currentUsername == "Matt" ? "photo1" : "photo2")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 45, height: 45)
                             .foregroundColor(Color.green)
+                            .clipShape(Circle())
 
                         Text(name)
                             .font(.system(size: 24))
