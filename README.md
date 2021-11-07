@@ -33,15 +33,15 @@ This Jam was a great learning experience. I learned, well... a lot of things, an
 
 Things I need to work on
 ----------
-The app doesn't -really- work... I didn't have the time to learn how to connect the Riddikulus charm to Firebase, so this data is not updated in real-time for users. I hard-coded variables and used poorly written if-else statements to create the demonstration.
-ScrollView doesn't scroll when new messages are added! Gah.
-Images are hard-coded optionals that work for 2 users (here, Matt and Jillian).
-Previews arent loading, maybe because the model requires Firebase.
+*The app doesn't -really- work... I didn't have the time to learn how to connect the Riddikulus charm to Firebase, so this data is not updated in real-time for users. I hard-coded variables and used poorly written if-else statements to create the demonstration.
+*ScrollView doesn't scroll when new messages are added! Gah.
+*Images are hard-coded optionals that work for 2 users (here, Matt and Jillian).
+*Previews arent loading, maybe because the model requires Firebase.
 
-Inspiration: https://www.youtube.com/watch?v=doxxfXqpKYA
 
 Credits
 ----------
+Inspiration: https://www.youtube.com/watch?v=doxxfXqpKYA
 
 To build this app, I followed this tutorial: https://www.skillshare.com/classes/SwiftUI-Build-Chat-App-for-Beginners-2021/266407467
 
