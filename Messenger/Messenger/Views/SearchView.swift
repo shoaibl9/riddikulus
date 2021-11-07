@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct SearchView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var model: AppStateModel
     @State var text: String = ""
-    let usernames = ["Julia"]
-    
-//    IN PROGRESS
+    @State var usernames: [String] = []
 
-//    let completion: ((String) -> Void)
-//
-//    init(completion: @escaping ((String) -> Void)) {
-//        self.completion = completion
-//    }
+    let completion: ((String) -> Void)
+
+    init(completion: @escaping ((String) -> Void)) {
+        self.completion = completion
+    }
     
     var body: some View {
         VStack {
@@ -25,7 +25,13 @@ struct SearchView: View {
                 .modifier(CustomField())
             
             Button("Search") {
+                guard !text.trimmingCharacters(in: .whitespaces).isEmpty else {
+                    return
+                }
                 
+                model.searchUsers(queryText: text) { usernames in
+                    self.usernames = usernames
+                }
             }
             
             List {
@@ -34,15 +40,16 @@ struct SearchView: View {
                         Circle()
                             .frame(width: 55, height: 55)
                             .foregroundColor(Color.green)
-                        
+
                         Text(name)
                             .font(.system(size: 24))
                         
                         Spacer()
                     }
-//                    .onTapGesture {
-//                        completion(name)
-//                    }
+                    .onTapGesture {
+                        presentationMode.wrappedValue.dismiss()
+                        completion(name)
+                    }
                 }
             }
             
@@ -54,6 +61,6 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        SearchView() {_ in}
     }
 }

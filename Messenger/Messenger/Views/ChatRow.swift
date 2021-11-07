@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatRow: View {
+    @EnvironmentObject var model: AppStateModel
     let type: MessageType
     let text: String
     
@@ -27,9 +28,12 @@ struct ChatRow: View {
             if !isSender {
                 VStack {
                     Spacer()
-                    Circle()
+                    Image(model.currentUsername == "Matt" ? "photo1" : "photo2")
+                        .resizable()
+                        .scaledToFit()
                         .frame(width: 45, height: 45)
                         .foregroundColor(Color.pink)
+                        .clipShape(Circle())
                 }
             }
             
@@ -39,8 +43,8 @@ struct ChatRow: View {
                     .padding()
             }
             .background(isSender ? Color.blue : Color(.systemGray4))
+            .cornerRadius(10)
             .padding(isSender ? .leading : .trailing, isSender ? UIScreen.main.bounds.width/3 : UIScreen.main.bounds.width/5)
-            .cornerRadius(6)
             
             if !isSender { Spacer() }
         }
@@ -51,8 +55,5 @@ struct ChatRow_Previews: PreviewProvider {
     static var previews: some View {
         ChatRow(text: "Hello World", type: .sent)
             .preferredColorScheme(.dark)
-        
-        ChatRow(text: "Hello World", type: .received)
-            .preferredColorScheme(.light)
     }
 }
