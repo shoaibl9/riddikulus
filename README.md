@@ -1,4 +1,4 @@
-# Riddikulus
+## Riddikulus
 
 Problem
 ----------
@@ -15,23 +15,36 @@ The app was built with SwiftUI using CocoaPods for dependencies. The backend is 
 Things I learned
 ----------
 This Jam was a great learning experience. I learned, well... a lot of things, and I'll list them here:
-    What Firebase Is and how to use Firebase Authentication and Firebase Datastore
-    What CocoaPods is and how to use dependencies to enhance your SwiftUI app.
-    Best practices for organizing project files and setting up XCode projects
-    Using Navigation to create multiple pages (something I'd never done before)
-    Using DispatchQueue to ensure things run smoothly
-    Using properties such as @EnvironmentObject, @AppStorage, and @State
-    Small hacks such as creating CustomModifier structs and using Optionals to display for light/dark mode accordingly
-    Taking and using user input through TextFields and Binding variables
-    How to use Images, Spacers, Modifiers to make my app look nice
-    How to set up an AppDelegate to connect to Firebase
-    How to navigate Firebase and create event listeners for Firebase Datastore
-    How to create a set of AppIcons with Asset Catalog Creator
-    Using guard let else to catch bugs
+
+What Firebase Is and how to use Firebase Authentication and Firebase Datastore
+
+What CocoaPods is and how to use dependencies to enhance your SwiftUI app.
+
+Best practices for organizing project files and setting up XCode projects
+
+Using Navigation to create multiple pages (something I'd never done before)
+
+Using DispatchQueue to ensure things run smoothly
+
+Using properties such as @EnvironmentObject, @AppStorage, and @State
+
+Small hacks such as creating CustomModifier structs and using Optionals to display for light/dark mode accordingly
+
+Taking and using user input through TextFields and Binding variables
+
+How to use Images, Spacers, Modifiers to make my app look nice
+
+How to set up an AppDelegate to connect to Firebase
+
+How to navigate Firebase and create event listeners for Firebase Datastore
+
+How to create a set of AppIcons with Asset Catalog Creator
+
+Using guard let else to catch bugs
 
 Things I need to work on
 ----------
-The app doesn't ~really~ work... I didn't have the time to learn how to connect the Riddikulus charm to Firebase, so this data is not updated in real-time for users. I hard-coded variables and used poorly written if-else statements to create the demonstration.
+The app doesn't -really- work... I didn't have the time to learn how to connect the Riddikulus charm to Firebase, so this data is not updated in real-time for users. I hard-coded variables and used poorly written if-else statements to create the demonstration.
 ScrollView doesn't scroll when new messages are added! Gah.
 Images are hard-coded optionals that work for 2 users (here, Matt and Jillian).
 Previews arent loading, maybe because the model requires Firebase.
